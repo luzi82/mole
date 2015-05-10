@@ -52,7 +52,7 @@ cc.game.onStart = function(){
         document.body.removeChild(document.getElementById("cocosLoading"));
 
 	if(cc.sys.os==cc.sys.OS_LINUX){
-    	cc.view.setFrameSize(360,480);
+		cc.view.setFrameSize(360,480);
 	}
 
     // Pass true to enable retina display, disabled by default to improve performance
