@@ -1,4 +1,6 @@
 
+var MoleCommon={};
+
 var HelloWorldLayer = cc.Layer.extend({
     sprite:null,
     moleLogic:null,
@@ -14,6 +16,11 @@ var HelloWorldLayer = cc.Layer.extend({
         this._super();
         
         cc.log("JVFzMNYF HelloWorldLayer.ctor start");
+        
+        var molelogic_js = jsb.fileUtils.getStringFromFile(res.MoleLogic_js);
+        eval(molelogic_js);
+        
+        cc.log(molelogic_js);
 
         /////////////////////////////
         // 2. add a menu item with "X" image, which is clicked to quit the program
@@ -140,7 +147,7 @@ var HelloWorldLayer = cc.Layer.extend({
     	this.moleLogic.tick(dt);
     	
     	var i;
-    	for(i=0;i<MoleLogicConst.MOLE_COUNT;++i){
+    	for(i=0;i<MoleCommon.MoleLogicConst.MOLE_COUNT;++i){
     		var type = null;
     		if(this.moleLogic.moleV[i]!=null){
     			type = this.moleLogic.moleV[i].type;

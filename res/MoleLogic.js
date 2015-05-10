@@ -5,7 +5,10 @@ var MoleLogicConst = {
 	MISS_SCORE : -5,
 };
 
+MoleCommon.MoleLogicConst = MoleLogicConst;
+
 function MoleLogic(){
+
 	this.score = 0;
 	this.maxScore = 0;
 	this.time = 0;
