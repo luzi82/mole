@@ -50,8 +50,10 @@
 cc.game.onStart = function(){
     if(!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
         document.body.removeChild(document.getElementById("cocosLoading"));
-        
-    cc.view.setFrameSize(360,480);
+
+	if(cc.sys.platform==cc.sys.LINUX){
+    	cc.view.setFrameSize(360,480);
+	}
 
     // Pass true to enable retina display, disabled by default to improve performance
     cc.view.enableRetina(false);
