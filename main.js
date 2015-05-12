@@ -63,11 +63,9 @@ cc.game.onStart = function(){
     cc.view.setDesignResolutionSize(360, 480, cc.ResolutionPolicy.SHOW_ALL);
     // The game will be resized when browser size change
     cc.view.resizeWithBrowserSize(true);
-    //load resources
-    cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new HelloWorldScene());
-    }, this);
     
     cc.director.setDisplayStats(false);
+    
+    moleCommonMain();
 };
 cc.game.run();

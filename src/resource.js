@@ -6,7 +6,8 @@ var res = {
     MoleGood_png : "res/mole_good.png",
     MoleLive_png : "res/mole_live.png",
     MoleMiss_png : "res/mole_miss.png",
-  	MoleLogic_js : "res/MoleLogic.js"
+  	MoleLogic_js : "res/MoleLogic.js",
+  	HelloWorldLayer_js : "res/HelloWorldLayer.js"
 };
 
 var g_resources = [];
