@@ -51,9 +51,10 @@ function MoleLogic(){
 			var good=false;
 			good = good || (this.nextMoleTime<=this.time);
 
+			good = good || (this.getLiveMoleCount()<3);
+
 			var emptyMole=this.getEmptyMoleV();
-			good = good || (emptyMole.length>7);
-			good = good && (emptyMole.length>0);
+			good = good && (emptyMole.length>=2);
 
 			if(!good)break;
 			
@@ -96,6 +97,16 @@ function MoleLogic(){
 	
 	this.getMolePeriod = function(){
 		return 0.5*Math.pow(50/15,0.25)/Math.pow(50/15+this.score,0.25);
+		//return Math.pow(25/(6*this.score+100),0.5);
+	}
+	
+	this.getLiveMoleCount = function(){
+		var ret=0;
+		for(i=0;i<this.moleV.length;++i){
+			if(this.moleV[i]==null)continue;
+			if(this.moleV[i].type=="LIVE")++ret;
+		}
+		return ret;
 	}
 	
 	this.getEmptyMoleV = function(){
