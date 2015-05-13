@@ -11,7 +11,6 @@ function MoleLogic(){
 
 	this.score = 0;
 	this.maxScore = 0;
-	this.time = 0;
 	this.nextMoleTime = 0;
 
 	this.moleV = [];
@@ -27,16 +26,17 @@ function MoleLogic(){
 		
 		var i;
 		
-		this.time += sec;
-		
 		// check mole dead
 		for(i=0;i<this.moleV.length;++i){
 			if(this.moleV[i]==null)continue;
-			if(this.moleV[i].dead>this.time)continue;
+			
+			this.moleV[i].lifetime -= sec;
+			
+			if(this.moleV[i].lifetime > 0)continue;
 			
 			if(this.moleV[i].type=="LIVE"){
 				this.moleV[i].type = "MISS";
-				this.moleV[i].dead += this.moleV[i].period;
+				this.moleV[i].lifetime += this.moleV[i].period;
 				this.addScore(MoleLogicConst.MISS_SCORE);
 			}else{
 				this.moleV[i]=null;
@@ -45,11 +45,12 @@ function MoleLogic(){
 		
 //		cc.log("ZRsMcGhz time "+this.time);
 //		cc.log("xWoHTJyO nextMoleTime "+this.nextMoleTime);
+		this.nextMoleTime -= sec;
 
 		// add mole
 		while(true){
 			var good=false;
-			good = good || (this.nextMoleTime<=this.time);
+			good = good || (this.nextMoleTime<0);
 
 			good = good || (this.getLiveMoleCount()<3);
 
@@ -64,32 +65,36 @@ function MoleLogic(){
 			var moleIdx=emptyMole[Math.floor(Math.random()*emptyMole.length)];
 			this.moleV[moleIdx]={
 				type : "LIVE",
-				dead : this.time+(molePeriod*4),
+				lifetime : molePeriod*4,
 				period : molePeriod
 			};
 			
-			this.nextMoleTime+=molePeriod;
+			if(this.nextMoleTime<0){
+				this.nextMoleTime+=molePeriod;
+			}else{
+				this.nextMoleTime=molePeriod;
+			}
 		}
 		
 //		cc.log("YujRadIK MoleLogic.tick end");
 	}
 	
 	this.hit = function(idx){
-		cc.log("kEhmbTyr MoleLogic.hit "+idx);
+		// cc.log("kEhmbTyr MoleLogic.hit "+idx);
 		var molePeriod = this.getMolePeriod();
 		if(this.moleV[idx]==null){
 			this.moleV[idx]={
 				type : "BAD",
-				dead : this.time + molePeriod,
+				lifetime : molePeriod,
 				period : molePeriod
 			};
 			this.addScore(MoleLogicConst.BAD_SCORE);
 			return;
 		}
-		cc.log("UYNXRsOr this.moleV[idx] "+this.moleV[idx].type);
+		// cc.log("UYNXRsOr this.moleV[idx] "+this.moleV[idx].type);
 		if(this.moleV[idx].type=="LIVE"){
 			this.moleV[idx].type = "GOOD";
-			this.moleV[idx].dead = this.time + molePeriod;
+			this.moleV[idx].lifetime = this.moleV[idx].period;
 			this.addScore(MoleLogicConst.GOOD_SCORE);
 			return;
 		}

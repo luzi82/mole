@@ -158,7 +158,7 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
     },
 
     onTouchBegan : function(touch, event) {
-    	cc.log("wnVTjigS HelloWorldLayer.onTouchBegan start");
+    	//cc.log("wnVTjigS HelloWorldLayer.onTouchBegan start");
     	
       var pos = touch.getLocation();
       //cc.log("onTouchBegan id="+touch.getID()+" pos="+JSON.stringify(pos));
