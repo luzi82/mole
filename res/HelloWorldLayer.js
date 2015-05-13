@@ -85,25 +85,25 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
 	        	var tmpSprite;
 
 	        	tmpSprite = new cc.Sprite(res.MoleBad_png);
-	        	tmpSprite.attr({x: x*120, y: y*120, anchorX: 0, anchorY: 0});
+	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleBadSpriteV.push(tmpSprite);
 
 	        	tmpSprite = new cc.Sprite(res.MoleGood_png);
-	        	tmpSprite.attr({x: x*120, y: y*120, anchorX: 0, anchorY: 0});
+	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleGoodSpriteV.push(tmpSprite);
 
 	        	tmpSprite = new cc.Sprite(res.MoleLive_png);
-	        	tmpSprite.attr({x: x*120, y: y*120, anchorX: 0, anchorY: 0});
+	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleLiveSpriteV.push(tmpSprite);
 
 	        	tmpSprite = new cc.Sprite(res.MoleMiss_png);
-	        	tmpSprite.attr({x: x*120, y: y*120, anchorX: 0, anchorY: 0});
+	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleMissSpriteV.push(tmpSprite);
@@ -141,14 +141,19 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
     	var i;
     	for(i=0;i<MoleCommon.MoleLogicConst.MOLE_COUNT;++i){
     		var type = null;
-    		if(this.moleLogic.moleV[i]!=null){
-    			type = this.moleLogic.moleV[i].type;
+    		var mole = this.moleLogic.moleV[i];
+    		if(mole!=null){
+    			type = mole.type;
     		}
 //    		cc.log("aRWezDle type="+type);
     		this.moleBadSpriteV[i].setVisible(type=="BAD");
     		this.moleGoodSpriteV[i].setVisible(type=="GOOD");
     		this.moleLiveSpriteV[i].setVisible(type=="LIVE");
     		this.moleMissSpriteV[i].setVisible(type=="MISS");
+    		if(type=="LIVE"){
+    			var scale = Math.sin(mole.lifetime*Math.PI/mole.lifetimemax);
+    			this.moleLiveSpriteV[i].setScale(scale);
+    		}
     	}
     	
     	this.scoreLabel.setString(this.moleLogic.score);

@@ -66,6 +66,7 @@ function MoleLogic(){
 			this.moleV[moleIdx]={
 				type : "LIVE",
 				lifetime : molePeriod*4,
+				lifetimemax : molePeriod*4,
 				period : molePeriod
 			};
 			
