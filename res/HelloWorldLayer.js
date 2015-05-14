@@ -86,12 +86,14 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
 
 	        	tmpSprite = new cc.Sprite(res.MoleBad_png);
 	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
+	        	tmpSprite.setScale(0.5);
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleBadSpriteV.push(tmpSprite);
 
 	        	tmpSprite = new cc.Sprite(res.MoleGood_png);
 	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
+	        	tmpSprite.setScale(0.5);
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleGoodSpriteV.push(tmpSprite);
@@ -104,6 +106,7 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
 
 	        	tmpSprite = new cc.Sprite(res.MoleMiss_png);
 	        	tmpSprite.attr({x: x*120+60, y: y*120+60, anchorX: 0.5, anchorY: 0.5});
+	        	tmpSprite.setScale(0.5);
 	        	tmpSprite.setVisible(false);
 	        	this.addChild(tmpSprite,1);
 	        	this.moleMissSpriteV.push(tmpSprite);
@@ -152,6 +155,7 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
     		this.moleMissSpriteV[i].setVisible(type=="MISS");
     		if(type=="LIVE"){
     			var scale = Math.sin(mole.lifetime*Math.PI/mole.lifetimemax);
+    			scale = (scale>0)?(Math.pow(scale,0.5)):0;
     			this.moleLiveSpriteV[i].setScale(scale);
     		}
     	}
