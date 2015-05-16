@@ -1,4 +1,9 @@
+.DS_Store
 /3rd-party/
+/frameworks/js-bindings/bindings/proj.ios_mac/build/
+/frameworks/js-bindings/bindings/proj.ios_mac/cocos2d_js_bindings.xcodeproj/xcuserdata/
+/frameworks/js-bindings/cocos2d-x/build/build/
+/frameworks/js-bindings/cocos2d-x/build/cocos2d_libs.xcodeproj/xcuserdata/
 /frameworks/js-bindings/cocos2d-x/cocos/platform/android/java/bin/
 /frameworks/js-bindings/cocos2d-x/cocos/platform/android/java/gen/
 /frameworks/js-bindings/cocos2d-x/cocos/platform/android/java/local.properties
@@ -8,5 +13,9 @@
 /frameworks/runtime-src/proj.android/libs/
 /frameworks/runtime-src/proj.android/local.properties
 /frameworks/runtime-src/proj.android/obj/
+/frameworks/runtime-src/proj.ios_mac/build/
+/frameworks/runtime-src/proj.ios_mac/ios/RootViewController.mm.save
+/frameworks/runtime-src/proj.ios_mac/mole.xcodeproj/project.xcworkspace/
+/frameworks/runtime-src/proj.ios_mac/mole.xcodeproj/xcuserdata/
 /linux-build/
 /runtime/
