@@ -35,7 +35,7 @@ option(DEBUG_MODE "Debug or release?" OFF)
 option(BUILD_EXTENSIONS "Build extension library" ON)
 option(BUILD_EDITOR_SPINE "Build editor support for spine" OFF)
 option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" OFF)
-option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
+option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" OFF)
 option(USE_PREBUILT_LIBS "Use prebuilt libraries in external directory" ON)
 
 
