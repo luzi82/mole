@@ -31,7 +31,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/framewor
 include(CocosBuildHelpers)
 
 option(USE_CHIPMUNK "Use chipmunk for physics library" ON)
-option(DEBUG_MODE "Debug or release?" ON)
+option(DEBUG_MODE "Debug or release?" OFF)
 option(BUILD_EXTENSIONS "Build extension library" ON)
 option(BUILD_EDITOR_SPINE "Build editor support for spine" ON)
 option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
