@@ -154,7 +154,7 @@ MoleCommon.HelloWorldLayer = cc.Layer.extend({
     		this.moleLiveSpriteV[i].setVisible(type=="LIVE");
     		this.moleMissSpriteV[i].setVisible(type=="MISS");
     		if(type=="LIVE"){
-    			var scale = Math.sin(mole.lifetime*Math.PI/mole.lifetimemax);
+    			var scale = Math.sin(mole.lifetime*Math.PI/mole.lifetimemax/2);
     			scale = (scale>0)?(Math.pow(scale,0.5)):0;
     			this.moleLiveSpriteV[i].setScale(scale);
     		}
