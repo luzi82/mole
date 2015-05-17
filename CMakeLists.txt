@@ -259,13 +259,15 @@ include_directories(frameworks/js-bindings/cocos2d-x/external/xxhash)
 
 # luzi82: cpp/h in src
 include_directories(
-  src
+  frameworks/js-bindings/cocos2d-x/cocos/cpp-test
+  frameworks/custom/auto
 )
 
 set(GAME_SRC
   frameworks/runtime-src/proj.linux/main.cpp
   frameworks/runtime-src/Classes/AppDelegate.cpp
-  src/cpp_test.cpp
+  frameworks/js-bindings/cocos2d-x/cocos/cpp-test/cpp_test.cpp
+  frameworks/custom/auto/jsb_cocos2dx_cpptest.cpp
 )
 
 # cocos2d

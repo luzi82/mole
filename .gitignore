@@ -1,5 +1,6 @@
 .DS_Store
 /3rd-party/
+/frameworks/custom/
 /frameworks/js-bindings/bindings/proj.ios_mac/build/
 /frameworks/js-bindings/bindings/proj.ios_mac/cocos2d_js_bindings.xcodeproj/xcuserdata/
 /frameworks/js-bindings/cocos2d-x/build/build/
@@ -19,3 +20,7 @@
 /frameworks/runtime-src/proj.ios_mac/mole.xcodeproj/xcuserdata/
 /linux-build/
 /runtime/
+/tools/bindings-generator/clang/__init__.pyc
+/tools/bindings-generator/clang/cindex.pyc
+/tools/bindings-generator/clang/enumerations.pyc
+/tools/tojs/userconf.ini

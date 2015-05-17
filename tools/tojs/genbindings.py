@@ -157,7 +157,9 @@ def main():
                 _run_cmd('dos2unix *')
 
         
-        custom_cmd_args = {}
+        custom_cmd_args = {
+        	'cocos2dx_cpptest.ini' : ('cocos2dx_cpptest', 'jsb_cocos2dx_cpptest'), \
+        }
         if len(custom_cmd_args) > 0:
             output_dir = '%s/frameworks/custom/auto' % project_root
             for key in custom_cmd_args.keys():

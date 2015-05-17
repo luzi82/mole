@@ -2,8 +2,8 @@
 
 CppTest::CppTest(){}
 CppTest::~CppTest(){}
-bool init(){return true;}
+bool CppTest::init(){return true;}
 
-std::string helloMsg(){
+std::string CppTest::helloMsg(){
 	return "Hello CCJQVIBLFM";
 }
