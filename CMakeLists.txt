@@ -257,9 +257,15 @@ message(STATUS "Flatbuffers include dirs: ${FLATBUFFERS_INCLUDE_DIRS}")
 add_subdirectory(frameworks/js-bindings/cocos2d-x/external/xxhash)
 include_directories(frameworks/js-bindings/cocos2d-x/external/xxhash)
 
+# luzi82: cpp/h in src
+include_directories(
+  src
+)
+
 set(GAME_SRC
   frameworks/runtime-src/proj.linux/main.cpp
   frameworks/runtime-src/Classes/AppDelegate.cpp
+  src/cpp_test.cpp
 )
 
 # cocos2d
